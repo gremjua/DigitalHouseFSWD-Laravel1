@@ -20,7 +20,16 @@ Route::get('home', function () {
 });
 
 Route::get('peliculas', function () {
-    $peliculas = ['Toy Story', 'Grandes Hérores', 'Coco', 'Buscando a Nemo', 'Monsters Inc'];
+    $peliculas = [  ['titulo' => 'Toy Story',
+                    'rating' => 9.5],
+                    ['titulo' => 'Monsters Inc',
+                    'rating' => 9],
+                    ['titulo' => 'Grandes Héroes',
+                    'rating' => 10],
+                    ['titulo' => 'Coco',
+                    'rating' => 8.2],
+                    ['titulo' => 'Cars',
+                    'rating' => 7]];
     $vac = compact ('peliculas');
     return view('peliculas', $vac);
 });

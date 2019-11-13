@@ -14,8 +14,10 @@
 <body>
         <h1>Peliculas</h1>
         <ul>
-            @forelse ($peliculas as $item)
-                <li>{{$item}}</li>
+            @forelse ($peliculas as $pelicula)
+                <li>{{$pelicula['titulo']}}@if ($pelicula['rating']>8)
+                    RECOMENDADA
+                @endif</li>
             @empty
                 No hay peliculas!
             @endforelse
