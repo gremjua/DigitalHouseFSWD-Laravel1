@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::get('home', function () {
     return view('home', ['name' => 'Samantha']);
 });
+
+Route::get('peliculas', function () {
+    $peliculas = ['Toy Story', 'Grandes Hérores', 'Coco', 'Buscando a Nemo', 'Monsters Inc'];
+    $vac = compact ('peliculas');
+    return view('peliculas', $vac);
+});
