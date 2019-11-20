@@ -1,24 +1,27 @@
-<?php
+@extends('layouts.default')
 
+@push('styles')
+    <link href="{{ asset('css/detallePelicula.css') }}" rel="stylesheet">
+@endpush
 
-?>
+@section('title')
+    @if (isset($peliculas[$id]))
+        {{$peliculas[$id]['titulo']}}
+    @else
+        Pelicula invalida
+    @endif
+@endsection
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pelicula</title>
-</head>
-<body>
-        <h1>Detalle de pelicula</h1>
-            
-        @if (isset($peliculas[$id]))
-            <h2>Titulo: {{$peliculas[$id]['titulo']}}</h2>
-            <h2>Rating: {{$peliculas[$id]['rating']}}</h2>
-        @else
-            <h2>Id de pelicula no es valido.</h2>
-        @endif
-</body>
-</html>
+@section('heading')
+    @if (isset($peliculas[$id]))
+        <h1>{{$peliculas[$id]['titulo']}}</h1>
+    @else
+        <h1 class="error">Pelicula invalida</h1>
+    @endif
+@endsection
+
+@section('content')
+    @if (isset($peliculas[$id]['rating']))
+        <h2>Rating: {{$peliculas[$id]['rating']}}</h2>
+    @endif
+@endsection

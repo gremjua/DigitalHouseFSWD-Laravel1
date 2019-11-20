@@ -1,26 +1,26 @@
-<?php
+@extends('layouts.default')
 
+@push('styles')
+    <link href="{{ asset('css/peliculas.css') }}" rel="stylesheet">
+    {{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+@endpush
 
-?>
+@section('title')
+    Peliculas
+@endsection
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Peliculas</title>
-</head>
-<body>
-        <h1>Peliculas</h1>
-        <ul>
-            @forelse ($peliculas as $pelicula)
-                <li>{{$pelicula['titulo']}}@if ($pelicula['rating']>8)
-                    RECOMENDADA
-                @endif</li>
-            @empty
-                No hay peliculas!
-            @endforelse
-        </ul>
-</body>
-</html>
+@section('heading')
+    <h1>Peliculas</h1>
+@endsection
+
+@section('content')
+    <ul>
+        @forelse ($peliculas as $pelicula)
+            <li>{{$pelicula['titulo']}}@if ($pelicula['rating']>8)
+                RECOMENDADA
+            @endif</li>
+        @empty
+            No hay peliculas!
+        @endforelse
+    </ul>
+@endsection
