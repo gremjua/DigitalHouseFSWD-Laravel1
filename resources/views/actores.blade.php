@@ -15,7 +15,7 @@
 @section('content')
     <ul>
         @forelse ($actores as $actor)
-            <li>{{$actor->getNombreCompleto()}}</li>
+            <li><a href="actor/{{$actor->id}}">{{$actor->getNombreCompleto()}}</a></li>
         @empty
             No hay actores!
         @endforelse
