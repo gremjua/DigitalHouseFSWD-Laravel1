@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Genre extends Model
 {
     //
-    public $table = 'genres';
+    //public $table = 'genres';
 }

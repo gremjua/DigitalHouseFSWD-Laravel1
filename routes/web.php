@@ -48,3 +48,6 @@ Route::get('pelicula/{id}', function ($id) {
     $vac = compact ('peliculas','id');
     return view('detallePelicula', $vac);
 });
+
+
+Route::get('actores', 'ActorController@directory');
