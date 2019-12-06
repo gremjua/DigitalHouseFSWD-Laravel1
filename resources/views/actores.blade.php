@@ -13,13 +13,11 @@
 @endsection
 
 @section('content')
-    {{-- <ul>
-        @forelse ($peliculas as $pelicula)
-            <li>{{$pelicula['titulo']}}@if ($pelicula['rating']>8)
-                RECOMENDADA
-            @endif</li>
+    <ul>
+        @forelse ($actores as $actor)
+            <li>{{$actor->getNombreCompleto()}}</li>
         @empty
-            No hay peliculas!
+            No hay actores!
         @endforelse
-    </ul> --}}
+    </ul>
 @endsection

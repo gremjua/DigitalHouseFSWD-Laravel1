@@ -51,3 +51,5 @@ Route::get('pelicula/{id}', function ($id) {
 
 
 Route::get('actores', 'ActorController@directory');
+
+Route::get('actor/{id}', 'ActorController@show');
