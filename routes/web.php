@@ -52,4 +52,7 @@ Route::get('pelicula/{id}', function ($id) {
 
 Route::get('actores', 'ActorController@directory');
 
+Route::get('actores/buscar', 'ActorController@search');
+
 Route::get('actor/{id}', 'ActorController@show');
+

@@ -13,6 +13,12 @@
 @endsection
 
 @section('content')
+    <form @unless(strpos(url()->current(),'buscar'))action="actores/buscar"@endunless method="get">
+        {{-- @csrf --}}
+        <label for="actorContiene">Buscar actor: </label>
+        <input type="text" name="actorContiene" id="buscadorActores">
+    </form>
+
     <ul>
         @forelse ($actores as $actor)
             <li><a href="actor/{{$actor->id}}">{{$actor->getNombreCompleto()}}</a></li>

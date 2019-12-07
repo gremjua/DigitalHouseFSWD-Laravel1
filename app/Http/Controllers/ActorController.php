@@ -17,4 +17,13 @@ class ActorController extends Controller
         $actor = Actor::find($id);
         return view('actor', compact('actor'));
     }
+
+    public function search() {
+        $text = $_GET['actorContiene'];
+        $actores = Actor::where('first_name', 'like',"%$text%")
+                    ->orWhere('last_name', 'like', "%$text%")
+                    ->orderBy('first_name')
+                    ->get();
+        return view('actores', compact('actores'));
+    }
 }
