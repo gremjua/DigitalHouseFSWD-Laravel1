@@ -9,7 +9,8 @@ class ActorController extends Controller
 {
     //
     public function directory() {
-        $actores = Actor::orderBy('first_name')->get();
+        $actores = Actor::orderBy('first_name')
+            ->paginate(10);
         return view('actores', compact('actores'));
     }
 
@@ -23,7 +24,7 @@ class ActorController extends Controller
         $actores = Actor::where('first_name', 'like',"%$text%")
                     ->orWhere('last_name', 'like', "%$text%")
                     ->orderBy('first_name')
-                    ->get();
+                    ->paginate(10);
         return view('actores', compact('actores'));
     }
 }

@@ -14,9 +14,12 @@
 
 @section('content')
     <form @unless(strpos(url()->current(),'buscar'))action="actores/buscar"@endunless method="get">
-        {{-- @csrf --}}
+        @csrf
         <label for="actorContiene">Buscar actor: </label>
-        <input type="text" name="actorContiene" id="buscadorActores">
+        <input type="text" name="actorContiene" id="buscadorActores" @if(isset($_GET['actorContiene']))value="{{$_GET['actorContiene']}}"@endif>
+        <p>        
+            <button type="reset" value="reset">Limpiar</button>
+        </p>
     </form>
 
     <ul>
@@ -25,5 +28,8 @@
         @empty
             No hay actores!
         @endforelse
+        @if(!empty($actores))
+            {{ $actores->appends(request()->except('page'))->links() }}
+        @endif
     </ul>
 @endsection
