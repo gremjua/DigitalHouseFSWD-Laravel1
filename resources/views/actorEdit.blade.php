@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <form action="actor/{{$actor->id}}" method="post">
+    <form action="/actor/{{$actor->id}}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="id" value="{{$actor->id}}">

@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <form action="add" method="post">
+    <form action="/actores/add" method="post">
         {{ csrf_field() }}
         <p>
             <label for="first_name">Nombre: </label>
