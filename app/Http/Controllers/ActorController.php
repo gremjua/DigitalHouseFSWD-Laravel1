@@ -43,4 +43,22 @@ class ActorController extends Controller
         $actor->save();
         return redirect('actores');
     }
+
+    public function edit($id) {
+        $actor = Actor::find($id);
+
+        return view('actorEdit', compact('actor'));
+    }
+
+    public function update(Request $req, $id) {
+        $actor = Actor::find($req->$id);
+
+        $actor->first_name = $req->first_name;
+        $actor->last_name = $req->last_name;
+        $actor->rating = $req->rating;
+        // $actor->favorite_movie_id = $req->favorite_movie_id;
+
+        $actor->save();
+        return redirect('actores');
+    }
 }
