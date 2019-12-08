@@ -53,10 +53,6 @@ Route::get('/actores', 'ActorController@directory');
 
 Route::get('/actores/buscar', 'ActorController@search');
 
-Route::get('/actores/actor/{id}', function ($id) {
-    return redirect("/actor/$id");
-});
-
 Route::get('/actores/add', 'ActorController@add');
 
 Route::post('/actores/add', 'ActorController@store');

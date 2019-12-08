@@ -20,7 +20,7 @@ class ActorController extends Controller
     }
 
     public function search() {
-        $text = $_GET['actorContiene'];
+        $text = isset($_GET['actorContiene'])?$_GET['actorContiene']:'';
         $actores = Actor::where('first_name', 'like',"%$text%")
                     ->orWhere('last_name', 'like', "%$text%")
                     ->orderBy('first_name')
@@ -51,7 +51,7 @@ class ActorController extends Controller
     }
 
     public function update(Request $req, $id) {
-        $actor = Actor::find($req->$id);
+        $actor = Actor::find($req->id);
 
         $actor->first_name = $req->first_name;
         $actor->last_name = $req->last_name;
