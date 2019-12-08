@@ -27,4 +27,20 @@ class ActorController extends Controller
                     ->paginate(10);
         return view('actores', compact('actores'));
     }
+
+    public function add() {
+        return view('actoresAdd');
+    }
+
+    public function store(Request $req) {
+        $actor = new Actor();
+
+        $actor->first_name = $req->first_name;
+        $actor->last_name = $req->last_name;
+        $actor->rating = $req->rating;
+        // $actor->favorite_movie_id = $req->favorite_movie_id;
+
+        $actor->save();
+        return redirect('actores');
+    }
 }

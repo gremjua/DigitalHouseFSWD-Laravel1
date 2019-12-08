@@ -49,10 +49,15 @@ Route::get('pelicula/{id}', function ($id) {
     return view('detallePelicula', $vac);
 });
 
-
 Route::get('actores', 'ActorController@directory');
 
 Route::get('actores/buscar', 'ActorController@search');
 
+Route::get('actores/add', 'ActorController@add');
+
+Route::post('actores/add', 'ActorController@store');
+
 Route::get('actores/actor/{id}', 'ActorController@show');
+
+Route::get('actores/actor/{id}/edit', 'ActorController@edit');
 
