@@ -62,3 +62,5 @@ Route::get('/actor/{id}', 'ActorController@show');
 Route::get('/actor/{id}/edit', 'ActorController@edit');
 
 Route::put('/actor/{id}', 'ActorController@update');
+
+Route::delete('/actor', 'ActorController@destroy');

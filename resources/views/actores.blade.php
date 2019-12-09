@@ -13,6 +13,9 @@
 @endsection
 
 @section('content')
+    <form action="/actores/add" method="get">
+        <button type="submit">Agregar</button>
+    </form>
     <form @unless(strpos(url()->current(),'buscar'))action="/actores/buscar"@endunless method="get">
         {{-- @csrf --}}
         <label for="actorContiene">Buscar actor: </label>

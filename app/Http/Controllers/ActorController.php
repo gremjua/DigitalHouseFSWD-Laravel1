@@ -61,4 +61,10 @@ class ActorController extends Controller
         $actor->save();
         return redirect('actores');
     }
+
+    public function destroy(Request $req) {
+        $actor = Actor::find($req->id);
+        $actor->delete();
+        return redirect('/actores');
+    }
 }
