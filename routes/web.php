@@ -19,35 +19,35 @@ Route::get('home', function () {
     return view('home', ['name' => 'Samantha']);
 });
 
-Route::get('peliculas', function () {
-    $peliculas = [  ['titulo' => 'Toy Story',
-                    'rating' => 9.5],
-                    ['titulo' => 'Monsters Inc',
-                    'rating' => 9],
-                    ['titulo' => 'Grandes Héroes',
-                    'rating' => 10],
-                    ['titulo' => 'Coco',
-                    'rating' => 8.2],
-                    ['titulo' => 'Cars',
-                    'rating' => 7]];
-    $vac = compact ('peliculas');
-    return view('peliculas', $vac);
-});
+// Route::get('peliculas', function () {
+//     $peliculas = [  ['titulo' => 'Toy Story',
+//                     'rating' => 9.5],
+//                     ['titulo' => 'Monsters Inc',
+//                     'rating' => 9],
+//                     ['titulo' => 'Grandes Héroes',
+//                     'rating' => 10],
+//                     ['titulo' => 'Coco',
+//                     'rating' => 8.2],
+//                     ['titulo' => 'Cars',
+//                     'rating' => 7]];
+//     $vac = compact ('peliculas');
+//     return view('peliculas', $vac);
+// });
 
-Route::get('pelicula/{id}', function ($id) {
-    $peliculas = [  ['titulo' => 'Toy Story',
-                    'rating' => 9.5],
-                    ['titulo' => 'Monsters Inc',
-                    'rating' => 9],
-                    ['titulo' => 'Grandes Héroes',
-                    'rating' => 10],
-                    ['titulo' => 'Coco',
-                    'rating' => 8.2],
-                    ['titulo' => 'Cars',
-                    'rating' => 7]];
-    $vac = compact ('peliculas','id');
-    return view('detallePelicula', $vac);
-});
+// Route::get('pelicula/{id}', function ($id) {
+//     $peliculas = [  ['titulo' => 'Toy Story',
+//                     'rating' => 9.5],
+//                     ['titulo' => 'Monsters Inc',
+//                     'rating' => 9],
+//                     ['titulo' => 'Grandes Héroes',
+//                     'rating' => 10],
+//                     ['titulo' => 'Coco',
+//                     'rating' => 8.2],
+//                     ['titulo' => 'Cars',
+//                     'rating' => 7]];
+//     $vac = compact ('peliculas','id');
+//     return view('detallePelicula', $vac);
+// });
 
 Route::get('/actores', 'ActorController@directory');
 
@@ -65,7 +65,7 @@ Route::put('/actor/{id}', 'ActorController@update');
 
 Route::delete('/actor', 'ActorController@destroy');
 
-Route::get('/movies', 'MovieController@directory');
-Route::get('/movies/add', 'ActorController@add');
-Route::post('/movies/add', 'ActorController@store');
-Route::get('/movie/{id}','MovieController@show');
+Route::get('/peliculas', 'MovieController@directory');
+Route::get('/peliculas/add', 'MovieController@add');
+Route::post('/peliculas/add', 'MovieController@store');
+Route::get('/pelicula/{id}','MovieController@show');

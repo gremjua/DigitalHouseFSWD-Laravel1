@@ -1,8 +1,8 @@
 @extends('layouts.default')
 
 @push('styles')
-    <link href="{{ asset('css/peliculas.css') }}" rel="stylesheet">
-    {{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+    {{-- <link href="{{ asset('css/peliculas.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @endpush
 
 @section('title')
@@ -16,11 +16,14 @@
 @section('content')
     <ul>
         @forelse ($peliculas as $pelicula)
-            <li>{{$pelicula['titulo']}}@if ($pelicula['rating']>8)
-                RECOMENDADA
+            <li>{{$pelicula['title']}}@if ($pelicula['rating']>8)
+                <b>RECOMENDADA</b>
             @endif</li>
         @empty
             No hay peliculas!
         @endforelse
     </ul>
+    @if(!empty($peliculas))
+        {{ $peliculas->appends(request()->except('page'))->links() }}
+    @endif
 @endsection
