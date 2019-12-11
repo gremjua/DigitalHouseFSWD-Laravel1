@@ -28,7 +28,10 @@ class MovieController extends Controller
                     'release_date' => 'required|date',
                     'length' => 'required|integer|min:0',
                     'genre_id' => 'required'];
-        $errors = ['required' => 'El campo :attribute es requerido'];
+        $errors = ['required' => 'El campo :attribute es requerido',
+                    'unique' => 'Ya existe una pelicula con ese :attribute',
+                    'min' => 'El campo :attribute debe ser al menos :min',
+                    'max' => 'El campo :attribute debe ser menor a :max'];
         $this->validate($req, $rules, $errors);
 
         $movie = new Movie();
