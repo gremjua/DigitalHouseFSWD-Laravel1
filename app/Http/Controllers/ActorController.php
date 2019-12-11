@@ -33,6 +33,13 @@ class ActorController extends Controller
     }
 
     public function store(Request $req) {
+
+        $rules = ['first_name' => 'required',
+                    'last_name' => 'required',
+                    'ranking' => 'required'];
+        $errors = ['required' => 'El campo :attribute es requerido'];
+        $this->validate($req, $rules, $errors);
+
         $actor = new Actor();
 
         $actor->first_name = $req->first_name;
