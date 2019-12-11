@@ -14,6 +14,9 @@
 @endsection
 
 @section('content')
+    <form action="/peliculas/add" method="get">
+        <button type="submit">Agregar</button>
+    </form>
     <ul>
         @forelse ($peliculas as $pelicula)
             <li>{{$pelicula['title']}}@if ($pelicula['rating']>8)
