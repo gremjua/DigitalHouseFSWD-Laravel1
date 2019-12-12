@@ -25,7 +25,17 @@
 
     @if (isset($actor))
         <p>Rating: {{$actor->rating}}</p>
-        <p>Favorite movie: {{$actor->favorite_movie_id}}</p>
+        <p>Favorite movie: @if (isset($actor->favoriteMovie))
+            {{$actor->favoriteMovie->title}}
+        @endif</p>
+        <p>Appears in movies: </p>
+        <ul>
+            @forelse ($actor->movies as $movie)
+                <li>{{$movie->title}}</li>
+            @empty
+                None
+            @endforelse
+        </ul>
 
         <form action="/actor/{{$actor->id}}/edit" method="get">
             <button type="submit">Editar</button>

@@ -3,8 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Genre;
-use App\Actor;
 
 class Movie extends Model
 {
