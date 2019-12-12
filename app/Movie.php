@@ -14,7 +14,7 @@ class Movie extends Model
 
     public function actors()
     {
-        return $this->belongsToMany('App\Actor', 'actor_movie', 'id_movie', 'id_actor');
+        return $this->belongsToMany('App\Actor', 'actor_movie', 'movie_id', 'actor_id')->orderBy('first_name');
     }
 
     public function isFavoriteForActors() {

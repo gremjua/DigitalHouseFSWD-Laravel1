@@ -15,6 +15,11 @@ class MovieController extends Controller
         return view('peliculas', compact('peliculas'));
     }
 
+    public function show($id) {
+        $pelicula = Movie::find($id);
+        return view('pelicula', compact('pelicula'));
+    }
+
     public function add() {
         $generos = Genre::all();
         return view('peliculasAdd', compact('generos'));

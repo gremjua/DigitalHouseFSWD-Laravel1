@@ -31,7 +31,7 @@
         <p>Appears in movies: </p>
         <ul>
             @forelse ($actor->movies as $movie)
-                <li>{{$movie->title}}</li>
+                <li><a href="/pelicula/{{$movie->id}}">{{$movie->title}}</a></li>
             @empty
                 None
             @endforelse

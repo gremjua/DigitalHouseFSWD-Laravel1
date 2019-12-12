@@ -19,7 +19,7 @@
     </form>
     <ul>
         @forelse ($peliculas as $pelicula)
-            <li>{{$pelicula['title']}}@if ($pelicula['rating']>8)
+            <li><a href="/pelicula/{{$pelicula->id}}">{{$pelicula['title']}}</a>@if ($pelicula['rating']>8)
                 <b>RECOMENDADA</b>
             @endif</li>
         @empty

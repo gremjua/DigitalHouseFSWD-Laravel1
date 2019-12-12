@@ -68,4 +68,4 @@ Route::delete('/actor', 'ActorController@destroy');
 Route::get('/peliculas', 'MovieController@directory');
 Route::get('/peliculas/add', 'MovieController@add');
 Route::post('/peliculas/add', 'MovieController@store');
-// Route::get('/pelicula/{id}','MovieController@show');
+Route::get('/pelicula/{id}','MovieController@show');
