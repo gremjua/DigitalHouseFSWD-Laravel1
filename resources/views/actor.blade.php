@@ -24,6 +24,9 @@
 @section('content')
 
     @if (isset($actor))
+        @if (isset($actor->photo))
+            <img src="/storage/{{$actor->photo}}">
+        @endif
         <p>Rating: {{$actor->rating}}</p>
         <p>Favorite movie: @if (isset($actor->favoriteMovie))
             {{$actor->favoriteMovie->title}}
