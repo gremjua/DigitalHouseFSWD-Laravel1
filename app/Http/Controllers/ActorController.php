@@ -36,7 +36,7 @@ class ActorController extends Controller
 
         $rules = ['first_name' => 'required',
                     'last_name' => 'required',
-                    'ranking' => 'required'];
+                    'rating' => 'required'];
         $errors = ['required' => 'El campo :attribute es requerido'];
         $this->validate($req, $rules, $errors);
 

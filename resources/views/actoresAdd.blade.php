@@ -29,7 +29,7 @@
         </p>
         <p>
             <label for="photo">Foto: </label>
-            <input type="file" name="photo" id="photo">
+            <input type="file" name="photo" id="photo" value="{{old("photo")}}">
         </p>
         <p>        
             <button type="submit">Agregar</button>
