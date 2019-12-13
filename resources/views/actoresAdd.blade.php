@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    <form action="/actores/add" method="post">
+    <form action="/actores/add" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <p>
             <label for="first_name">Nombre: </label>
@@ -26,6 +26,10 @@
         <p>
             <label for="rating">Rating: </label>
             <input type="text" name="rating" value="{{old("rating")}}">
+        </p>
+        <p>
+            <label for="photo">Foto: </label>
+            <input type="file" name="photo" id="photo">
         </p>
         <p>        
             <button type="submit">Agregar</button>

@@ -45,6 +45,9 @@ class ActorController extends Controller
         $actor->first_name = $req->first_name;
         $actor->last_name = $req->last_name;
         $actor->rating = $req->rating;
+        $path = $req->file('photo')->store('public');
+        $nombreArchivo = basename($path);
+        $actor->photo = $nombreArchivo;
         // $actor->favorite_movie_id = $req->favorite_movie_id;
 
         $actor->save();
