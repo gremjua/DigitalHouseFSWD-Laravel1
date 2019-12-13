@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function () {
-    return view('home', ['name' => 'Samantha']);
-});
+// Route::get('home', function () {
+//     return view('home', ['name' => 'Samantha']);
+// });
 
 // Route::get('peliculas', function () {
 //     $peliculas = [  ['titulo' => 'Toy Story',
@@ -69,3 +69,7 @@ Route::get('/peliculas', 'MovieController@directory');
 Route::get('/peliculas/add', 'MovieController@add');
 Route::post('/peliculas/add', 'MovieController@store');
 Route::get('/pelicula/{id}','MovieController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
