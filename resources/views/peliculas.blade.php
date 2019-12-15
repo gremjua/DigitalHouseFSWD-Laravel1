@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.app')
 
 @push('styles')
     {{-- <link href="{{ asset('css/peliculas.css') }}" rel="stylesheet"> --}}

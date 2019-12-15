@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -56,6 +57,12 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
+                                    <a class="dropdown-item" href="/peliculas">
+                                        Peliculas
+                                    </a>
+                                    <a class="dropdown-item" href="/actores">
+                                        Actores
+                                    </a>
                                     <a class="dropdown-item" href="/profile">
                                         User Profile
                                     </a>
@@ -78,6 +85,8 @@
         </nav>
 
         <main class="py-4">
+            @yield('heading')
+
             @yield('content')
         </main>
     </div>
