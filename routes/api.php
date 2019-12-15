@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Movie;
+use App\Genre;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,18 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware('auth:api')->get('/peliculas', function () {
+    $peliculas = Movie::all();
+    foreach($peliculas as $pelicula) {
+        if(isset($pelicula->genre_id)){
+            $pelicula->genreName = Genre::find($pelicula->genre_id)->name;
+        }
+        else{
+            $pelicula->genreName = null;
+        }
+        
+    }
+    return $peliculas->toJson();
 });
