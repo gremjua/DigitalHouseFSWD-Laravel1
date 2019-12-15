@@ -53,26 +53,26 @@ Route::get('/actores', 'ActorController@directory');
 
 Route::get('/actores/buscar', 'ActorController@search');
 
-Route::get('/actores/add', 'ActorController@add');
+Route::get('/actores/add', 'ActorController@add')->middleware('auth');
 
-Route::post('/actores/add', 'ActorController@store');
+Route::post('/actores/add', 'ActorController@store')->middleware('auth');
 
 Route::get('/actor/{id}', 'ActorController@show');
 
-Route::get('/actor/{id}/edit', 'ActorController@edit');
+Route::get('/actor/{id}/edit', 'ActorController@edit')->middleware('auth');
 
-Route::put('/actor/{id}', 'ActorController@update');
+Route::put('/actor/{id}', 'ActorController@update')->middleware('auth');
 
-Route::delete('/actor', 'ActorController@destroy');
+Route::delete('/actor', 'ActorController@destroy')->middleware('auth');
 
 Route::get('/peliculas', 'MovieController@directory');
-Route::get('/peliculas/add', 'MovieController@add');
-Route::post('/peliculas/add', 'MovieController@store');
+Route::get('/peliculas/add', 'MovieController@add')->middleware('auth');
+Route::post('/peliculas/add', 'MovieController@store')->middleware('auth');
 Route::get('/pelicula/{id}','MovieController@show');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/profile', 'UserController@profile');
-Route::post('/profile', 'UserController@update_avatar');
+Route::get('/profile', 'UserController@profile')->middleware('auth');
+Route::post('/profile', 'UserController@update_avatar')->middleware('auth');
